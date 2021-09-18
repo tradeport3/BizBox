@@ -6,14 +6,13 @@ namespace Domain.Models
 {
     public class Company : Audit, IAggregateRoot
     {
-        private readonly Guard guard;
-
         private readonly HashSet<Review> reviews;
 
-        public Company(Guard guard)
+        public Company(string name)
         {
-            this.guard = guard;
+            this.Validate(name);
 
+            this.Name = name;
             this.reviews = new HashSet<Review>();
         }
 
@@ -34,10 +33,14 @@ namespace Domain.Models
         public void AddReview(Review review) => this.reviews.Add(review);
 
         private void Validate(string name)
-         => this.guard.Against(
-             name.Length < ModelConstants.MinNameLength ||
-             name.Length > ModelConstants.MaxNameLength,
-             ErrorConstants.InvalidInput);
+        {
+            Guard.AgainstInValidString(name, ErrorConstants.InvalidInput);
 
+            Guard.Against(
+                        name.Length < ModelConstants.MinNameLength ||
+                        name.Length > ModelConstants.MaxNameLength,
+                        ErrorConstants.InvalidInput);
+
+        }
     }
 }
