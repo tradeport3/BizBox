@@ -14,6 +14,7 @@ namespace Domain.Models
             this.Validate(name);
 
             this.Name = name;
+
             this.reviews = new HashSet<Review>();
             this.interviews = new HashSet<Interview>();
         }
