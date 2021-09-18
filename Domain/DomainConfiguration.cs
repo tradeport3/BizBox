@@ -7,7 +7,9 @@ namespace Domain
     public static class DomainConfiguration
     {
         public static IServiceCollection AddDomain(this IServiceCollection services)
-            => services.AddFactories();
+            => services
+                .AddFactories()
+                .AddRepositories();
 
         private static IServiceCollection AddFactories(this IServiceCollection services)
           => services

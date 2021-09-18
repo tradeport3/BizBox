@@ -1,6 +1,10 @@
+using Domain;
+
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddControllers();
+builder.Services
+        .AddDomain()
+        .AddControllers();
 
 var app = builder.Build();
 
