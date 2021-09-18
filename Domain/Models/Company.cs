@@ -18,8 +18,6 @@ namespace Domain.Models
 
         public string Name { get; private set; }
 
-        public int Rating { get; private set; }
-
         public IReadOnlyCollection<Review> Reviews => this.reviews.ToList().AsReadOnly();
 
         public Company UpdateName(string name)

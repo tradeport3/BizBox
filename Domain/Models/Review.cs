@@ -11,7 +11,15 @@ namespace Domain.Models
             this.salaries = new HashSet<Salary>();
         }
 
+        public int Rating { get; set; }
+
+
         public IReadOnlyCollection<Salary> Salaries => this.salaries.ToList().AsReadOnly();
+
+        public void AddSalary(Salary salary)
+        {
+            this.salaries.Add(salary);
+        }
 
     }
 }
