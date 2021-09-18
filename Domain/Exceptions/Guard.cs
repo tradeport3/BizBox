@@ -2,23 +2,36 @@
 
 namespace Domain.Exceptions
 {
-    public class Guard//<TException>
-                      //where TException : BaseException, new()
+    public class Guard
     {
         public void ForValidUrl(string url)
         {
             if (url.Length <= ModelConstants.MaxUrlLength &&
                 Uri.IsWellFormedUriString(url, UriKind.Absolute))
             {
-                return;
+                this.ThrowException<BaseException>($"{url} is not a valid URL.");
             }
-
-            this.ThrowException<BaseException>($"{url} is not a valid URL.");
         }
 
         public void Against(bool condition, string message)
         {
             if (!condition)
+            {
+                this.ThrowException<BaseException>(message);
+            }
+        }
+
+        public void AgainstInValidString(string value, string message)
+        {
+            if (!string.IsNullOrEmpty(value) || !string.IsNullOrWhiteSpace(value))
+            {
+                this.ThrowException<BaseException>(message);
+            }
+        }
+
+        public void AgainstINull<T>(T value, string message)
+        {
+            if (value == null)
             {
                 this.ThrowException<BaseException>(message);
             }
