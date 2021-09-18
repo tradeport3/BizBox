@@ -20,7 +20,7 @@ namespace Domain.Models
 
         public string Name { get; set; }
 
-        public int Rating => (int)this.reviews.Average(x => x.Rating);
+        public double Rating => this.reviews.Average(x => x.Rating);
 
         public IReadOnlyCollection<Review> Reviews => this.reviews.ToList().AsReadOnly();
 
