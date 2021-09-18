@@ -2,13 +2,13 @@
 using Application.Interfaces;
 using Domain.Common;
 using Domain.Models;
-using Microsoft.AspNetCore.Identity;
+using Infrastructure.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Persistance
 {
-    internal class BizBoxDbContext : IdentityDbContext<IdentityUser>
+    internal class BizBoxDbContext : IdentityDbContext<User>
     {
         private readonly ICurrentUser currentUser;
 

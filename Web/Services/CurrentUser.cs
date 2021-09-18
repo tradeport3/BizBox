@@ -1,4 +1,5 @@
 ﻿using System.Security.Claims;
+using Application.Interfaces;
 
 namespace Web.Services
 {
