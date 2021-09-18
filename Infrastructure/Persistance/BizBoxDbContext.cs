@@ -1,4 +1,5 @@
-﻿using Application.Interfaces;
+﻿using System.Reflection;
+using Application.Interfaces;
 using Domain.Common;
 using Domain.Models;
 using Microsoft.AspNetCore.Identity;
@@ -45,6 +46,13 @@ namespace Infrastructure.Persistance
             }
 
             return await base.SaveChangesAsync(cancellationToken);
+        }
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+
+            base.OnModelCreating(builder);
         }
     }
 }
