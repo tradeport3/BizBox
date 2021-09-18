@@ -1,6 +1,6 @@
 ﻿using Domain.Models;
 
-namespace Domain.Factories
+namespace Domain.Factories.Reviews
 {
     internal class ReviewFactory : IReviewFactory
     {

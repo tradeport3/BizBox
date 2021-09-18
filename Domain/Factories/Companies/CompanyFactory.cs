@@ -1,6 +1,6 @@
 ﻿using Domain.Models;
 
-namespace Domain.Factories
+namespace Domain.Factories.Companies
 {
     internal class CompanyFactory : ICompanyFactory
     {
@@ -11,7 +11,6 @@ namespace Domain.Factories
             this.name = name;
             return this;
         }
-        public Company Create()
-            => new(this.name);
+        public Company Create() => new(this.name);
     }
 }

@@ -1,7 +1,7 @@
 ﻿using Domain.Common;
 using Domain.Models;
 
-namespace Domain.Factories
+namespace Domain.Factories.Reviews
 {
     public interface IReviewFactory : IFactory<Review>
     {
