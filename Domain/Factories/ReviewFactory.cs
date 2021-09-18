@@ -10,7 +10,6 @@ namespace Domain.Factories
             this.rating = rating;
             return this;
         }
-        public Review Create()
-            => new(this.rating);
+        public Review Create() => new(this.rating);
     }
 }
