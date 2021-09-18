@@ -7,6 +7,7 @@ namespace Domain.Models
     public class Company : Audit, IAggregateRoot
     {
         private readonly HashSet<Review> reviews;
+        private readonly HashSet<Interview> interviews;
 
         public Company(string name)
         {
@@ -14,6 +15,7 @@ namespace Domain.Models
 
             this.Name = name;
             this.reviews = new HashSet<Review>();
+            this.interviews = new HashSet<Interview>();
         }
 
         public string Name { get; set; }
@@ -22,16 +24,20 @@ namespace Domain.Models
 
         public IReadOnlyCollection<Review> Reviews => this.reviews.ToList().AsReadOnly();
 
+        public IReadOnlyCollection<Interview> Interviews => this.interviews.ToList().AsReadOnly();
+
+        public void AddReview(Review review) => this.reviews.Add(review);
+
+        public void AddInterview(Interview interview) => this.interviews.Add(interview);
+
         public Company UpdateName(string name)
         {
             this.Validate(name);
+
             this.Name = name;
 
             return this;
         }
-
-
-        public void AddReview(Review review) => this.reviews.Add(review);
 
         private void Validate(string value)
         {
