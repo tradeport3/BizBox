@@ -1,4 +1,6 @@
 ﻿using Domain.Common;
+using Domain.Constants;
+using Domain.Exceptions;
 
 namespace Domain.Models
 {
@@ -16,6 +18,17 @@ namespace Domain.Models
         public IReadOnlyCollection<Salary> Salaries => this.salaries.ToList().AsReadOnly();
 
         public void AddSalary(Salary salary) => this.salaries.Add(salary);
+
+        private void Validate(string rating)
+        {
+            Guard.AgainstInValidString(rating, ErrorConstants.InvalidInput);
+
+            Guard.Against(
+                        rating.Length < ModelConstants.MinRating ||
+                        rating.Length > ModelConstants.MaxRating,
+                        ErrorConstants.InvalidInput);
+
+        }
 
     }
 }
