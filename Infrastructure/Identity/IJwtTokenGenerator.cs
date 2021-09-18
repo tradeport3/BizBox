@@ -1,4 +1,6 @@
-﻿namespace Infrastructure.Identity
+﻿using System.Collections.Generic;
+
+namespace Infrastructure.Identity
 {
     public interface IJwtTokenGenerator
     {
