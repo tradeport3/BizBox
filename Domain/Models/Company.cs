@@ -16,7 +16,9 @@ namespace Domain.Models
             this.reviews = new HashSet<Review>();
         }
 
-        public string Name { get; private set; }
+        public string Name { get; set; }
+
+        public int Rating => (int)this.reviews.Average(x => x.Rating);
 
         public IReadOnlyCollection<Review> Reviews => this.reviews.ToList().AsReadOnly();
 
@@ -27,6 +29,7 @@ namespace Domain.Models
 
             return this;
         }
+
 
         public void AddReview(Review review) => this.reviews.Add(review);
 
