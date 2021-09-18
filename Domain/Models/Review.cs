@@ -4,11 +4,11 @@ using Domain.Exceptions;
 
 namespace Domain.Models
 {
-    public class Review : Audit
+    public class Review : Audit, IAggregateRoot
     {
         private readonly HashSet<Salary> salaries;
 
-        public Review(int rating)
+        public Review(double rating)
         {
             Validate(rating);
 
@@ -22,7 +22,7 @@ namespace Domain.Models
 
         public void AddSalary(Salary salary) => this.salaries.Add(salary);
 
-        private void Validate(int value)
+        private void Validate(double value)
             => Guard.Against(
                   value < ModelConstants.MinRating ||
                   value > ModelConstants.MaxRating,

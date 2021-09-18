@@ -18,10 +18,9 @@ namespace Domain.Models
         {
             Guard.AgainstInValidString(value, ErrorConstants.InvalidInput);
 
-            Guard.Against(
-                        value.Length < ModelConstants.MinStringLength ||
-                        value.Length > ModelConstants.MaxStringLength,
-                        ErrorConstants.InvalidInput);
+            Guard.Against(value.Length < ModelConstants.MinStringLength ||
+                          value.Length > ModelConstants.MaxStringLength,
+                          ErrorConstants.InvalidInput);
         }
     }
 }
