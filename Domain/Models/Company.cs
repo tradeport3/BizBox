@@ -33,15 +33,14 @@ namespace Domain.Models
 
         public void AddReview(Review review) => this.reviews.Add(review);
 
-        private void Validate(string name)
+        private void Validate(string value)
         {
-            Guard.AgainstInValidString(name, ErrorConstants.InvalidInput);
+            Guard.AgainstInValidString(value, ErrorConstants.InvalidInput);
 
             Guard.Against(
-                        name.Length < ModelConstants.MinNameLength ||
-                        name.Length > ModelConstants.MaxNameLength,
-                        ErrorConstants.InvalidInput);
-
+                value.Length < ModelConstants.MinStringLength ||
+                value.Length > ModelConstants.MaxStringLength,
+                ErrorConstants.InvalidInput);
         }
     }
 }

@@ -2,8 +2,8 @@
 {
     public class ModelConstants
     {
-        public const int MinNameLength = 2;
-        public const int MaxNameLength = 20;
+        public const int MinStringLength = 2;
+        public const int MaxStringLength = 30;
 
         public const int MinRating = 1;
         public const int MaxRating = 5;

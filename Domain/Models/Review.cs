@@ -8,8 +8,11 @@ namespace Domain.Models
     {
         private readonly HashSet<Salary> salaries;
 
-        public Review()
+        public Review(int rating)
         {
+            Validate(rating);
+
+            this.Rating = rating;
             this.salaries = new HashSet<Salary>();
         }
 
@@ -19,16 +22,11 @@ namespace Domain.Models
 
         public void AddSalary(Salary salary) => this.salaries.Add(salary);
 
-        private void Validate(string rating)
-        {
-            Guard.AgainstInValidString(rating, ErrorConstants.InvalidInput);
-
-            Guard.Against(
-                        rating.Length < ModelConstants.MinRating ||
-                        rating.Length > ModelConstants.MaxRating,
-                        ErrorConstants.InvalidInput);
-
-        }
+        private void Validate(int value)
+            => Guard.Against(
+                  value < ModelConstants.MinRating ||
+                  value > ModelConstants.MaxRating,
+                  ErrorConstants.InvalidInput);
 
     }
 }
