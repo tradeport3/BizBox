@@ -6,9 +6,9 @@
 
         public DateTime? ModifiedOn { get; set; }
 
-        public string CreatedBy { get; set; }
+        public string CreatedBy { get; set; } = default!;
 
-        public string ModifiedBy { get; set; }
+        public string ModifiedBy { get; set; } = default!;
 
     }
 }
