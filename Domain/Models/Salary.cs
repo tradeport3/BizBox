@@ -1,26 +1,19 @@
 ﻿using Domain.Common;
-using Domain.Constants;
-using Domain.Exceptions;
 
 namespace Domain.Models
 {
     public class Salary : ValueObject
     {
-        public Salary(string position)
+        public Salary(string position, string netSalary)
         {
-            Validate(position);
+            Validator.Validate(position);
+            Validator.Validate(netSalary);
 
             this.Position = position;
+            this.NetSalary = netSalary;
         }
         public string Position { get; set; }
 
-        private void Validate(string value)
-        {
-            Guard.AgainstInvalidString(value, ErrorConstants.InvalidInput);
-
-            Guard.Against(value.Length < ModelConstants.MinStringLength ||
-                          value.Length > ModelConstants.MaxStringLength,
-                          ErrorConstants.InvalidInput);
-        }
+        public string NetSalary { get; set; }
     }
 }

@@ -1,4 +1,8 @@
-﻿namespace Domain.Models
+﻿
+
+using Domain.Common;
+
+namespace Domain.Models
 {
     public class Interview
     {
@@ -10,6 +14,11 @@
         }
         public IReadOnlyCollection<string> Questions => this.questions.ToList().AsReadOnly();
 
-        public void AddQuestion(string question) => this.questions.Add(question);
+        public void AddQuestion(string question)
+        {
+            Validator.Validate(question);
+
+            this.questions.Add(question);
+        }
     }
 }

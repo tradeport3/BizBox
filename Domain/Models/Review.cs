@@ -1,6 +1,4 @@
 ﻿using Domain.Common;
-using Domain.Constants;
-using Domain.Exceptions;
 
 namespace Domain.Models
 {
@@ -8,25 +6,63 @@ namespace Domain.Models
     {
         private readonly HashSet<Salary> salaries;
 
-        public Review(double rating)
+        public Review(
+            double culture,
+            double managament,
+            double compensationsBenefits,
+            double carreerOpportunities,
+            string pros,
+            string cons)
         {
-            Validate(rating);
+            Validator.Validate(managament);
+            Validator.Validate(compensationsBenefits);
+            Validator.Validate(carreerOpportunities);
+            Validator.Validate(culture);
+            Validator.Validate(pros);
+            Validator.Validate(cons);
 
-            this.Rating = rating;
+            this.Management = managament;
+            this.CompensationsBenefits = compensationsBenefits;
+            this.CarreerOpportunities = carreerOpportunities;
+            this.Culture = culture;
+            this.Pros = pros;
+            this.Cons = cons;
+
             this.salaries = new HashSet<Salary>();
         }
 
-        public double Rating { get; set; }
+        public double Management { get; set; }
+
+        public double CompensationsBenefits { get; set; }
+
+        public double CarreerOpportunities { get; set; }
+
+        public double Culture { get; set; }
+
+        public string Pros { get; set; }
+
+        public string Cons { get; set; }
+
+        public double Rating => this.GetRating();
 
         public IReadOnlyCollection<Salary> Salaries => this.salaries.ToList().AsReadOnly();
 
-        public void AddSalary(Salary salary) => this.salaries.Add(salary);
+        public void AddSalary(Salary salary)
+        {
+            Validator.Validate(salary.Position);
+            Validator.Validate(salary.NetSalary);
 
-        private void Validate(double value)
-            => Guard.Against(
-                  value < ModelConstants.MinRating ||
-                  value > ModelConstants.MaxRating,
-                  ErrorConstants.InvalidInput);
+            this.salaries.Add(salary);
+        }
 
+        public double GetRating()
+            => new List<double>
+            {
+                this.Management,
+                this.CompensationsBenefits,
+                this.CarreerOpportunities,
+                this.Culture
+            }
+            .Average();
     }
 }

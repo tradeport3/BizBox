@@ -1,6 +1,4 @@
 ﻿using Domain.Common;
-using Domain.Constants;
-using Domain.Exceptions;
 
 namespace Domain.Models
 {
@@ -11,7 +9,7 @@ namespace Domain.Models
 
         public Company(string name)
         {
-            this.Validate(name);
+            Validator.Validate(name);
 
             this.Name = name;
 
@@ -27,26 +25,25 @@ namespace Domain.Models
 
         public IReadOnlyCollection<Interview> Interviews => this.interviews.ToList().AsReadOnly();
 
-        public void AddReview(Review review) => this.reviews.Add(review);
+        public void AddReview(Review review)
+        {
+            Validator.Validate(review.Management);
+            Validator.Validate(review.CompensationsBenefits);
+            Validator.Validate(review.CarreerOpportunities);
+            Validator.Validate(review.Culture);
+
+            this.reviews.Add(review);
+        }
 
         public void AddInterview(Interview interview) => this.interviews.Add(interview);
 
         public Company UpdateName(string name)
         {
-            this.Validate(name);
+            Validator.Validate(name);
 
             this.Name = name;
 
             return this;
-        }
-
-        private void Validate(string value)
-        {
-            Guard.AgainstInvalidString(value, ErrorConstants.InvalidInput);
-
-            Guard.Against(value.Length < ModelConstants.MinStringLength ||
-                          value.Length > ModelConstants.MaxStringLength,
-                          ErrorConstants.InvalidInput);
         }
     }
 }
