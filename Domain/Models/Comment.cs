@@ -2,14 +2,14 @@
 
 namespace Domain.Models
 {
-    public class ProCon
+    public class Comment
     {
-        public ProCon(string text, bool isPro)
+        public Comment(bool isPro, string text)
         {
             Validator.Validate(text);
 
-            this.Text = text;
             this.IsPro = isPro;
+            this.Text = text;
         }
         public string Text { get; set; }
 

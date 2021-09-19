@@ -5,7 +5,7 @@ namespace Domain.Models
     public class Review : Audit, IAggregateRoot
     {
         private readonly HashSet<Salary> salaries;
-        private readonly HashSet<ProCon> prosCons;
+        private readonly HashSet<Comment> comments;
 
         public Review(
             double culture,
@@ -24,7 +24,7 @@ namespace Domain.Models
             this.Culture = culture;
 
             this.salaries = new HashSet<Salary>();
-            this.prosCons = new HashSet<ProCon>();
+            this.comments = new HashSet<Comment>();
         }
 
         public double Management { get; set; }
@@ -39,7 +39,7 @@ namespace Domain.Models
 
         public IReadOnlyCollection<Salary> Salaries => this.salaries.ToList().AsReadOnly();
 
-        public IReadOnlyCollection<ProCon> ProsCons => this.prosCons.ToList().AsReadOnly();
+        public IReadOnlyCollection<Comment> Comments => this.comments.ToList().AsReadOnly();
 
         public void AddSalary(Salary salary)
         {
@@ -49,11 +49,11 @@ namespace Domain.Models
             this.salaries.Add(salary);
         }
 
-        public void AddProCon(ProCon proCon)
+        public void AddComment(Comment comment)
         {
-            Validator.Validate(proCon.Text);
+            Validator.Validate(comment.Text);
 
-            this.prosCons.Add(proCon);
+            this.comments.Add(comment);
         }
 
         public double GetRating()
