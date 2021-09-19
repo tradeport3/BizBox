@@ -5,30 +5,26 @@ namespace Domain.Models
     public class Review : Audit, IAggregateRoot
     {
         private readonly HashSet<Salary> salaries;
+        private readonly HashSet<ProCon> prosCons;
 
         public Review(
             double culture,
             double managament,
             double compensationsBenefits,
-            double carreerOpportunities,
-            string pros,
-            string cons)
+            double carreerOpportunities)
         {
             Validator.Validate(managament);
             Validator.Validate(compensationsBenefits);
             Validator.Validate(carreerOpportunities);
             Validator.Validate(culture);
-            Validator.Validate(pros);
-            Validator.Validate(cons);
 
             this.Management = managament;
             this.CompensationsBenefits = compensationsBenefits;
             this.CarreerOpportunities = carreerOpportunities;
             this.Culture = culture;
-            this.Pros = pros;
-            this.Cons = cons;
 
             this.salaries = new HashSet<Salary>();
+            this.prosCons = new HashSet<ProCon>();
         }
 
         public double Management { get; set; }
@@ -39,13 +35,11 @@ namespace Domain.Models
 
         public double Culture { get; set; }
 
-        public string Pros { get; set; }
-
-        public string Cons { get; set; }
-
         public double Rating => this.GetRating();
 
         public IReadOnlyCollection<Salary> Salaries => this.salaries.ToList().AsReadOnly();
+
+        public IReadOnlyCollection<ProCon> ProsCons => this.prosCons.ToList().AsReadOnly();
 
         public void AddSalary(Salary salary)
         {
@@ -53,6 +47,13 @@ namespace Domain.Models
             Validator.Validate(salary.NetSalary);
 
             this.salaries.Add(salary);
+        }
+
+        public void AddProCon(ProCon proCon)
+        {
+            Validator.Validate(proCon.Text);
+
+            this.prosCons.Add(proCon);
         }
 
         public double GetRating()
