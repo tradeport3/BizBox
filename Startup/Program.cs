@@ -1,8 +1,9 @@
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using Startup;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddSingleton<StartupConfiguration>();
+builder.Services.TryAddSingleton<StartupConfiguration>();
 
 var app = builder.Build();
 
