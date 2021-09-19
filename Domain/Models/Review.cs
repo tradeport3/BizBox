@@ -56,7 +56,7 @@ namespace Domain.Models
             this.comments.Add(comment);
         }
 
-        public double GetRating()
+        private double GetRating()
             => new List<double>
             {
                 this.Management,

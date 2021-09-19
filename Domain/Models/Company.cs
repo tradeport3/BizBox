@@ -17,7 +17,7 @@ namespace Domain.Models
             this.interviews = new HashSet<Interview>();
         }
 
-        public string Name { get; set; }
+        public string Name { get; private set; }
 
         public double Rating => this.reviews.Average(x => x.Rating);
 
