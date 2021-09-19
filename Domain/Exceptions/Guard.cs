@@ -21,7 +21,7 @@ namespace Domain.Exceptions
             }
         }
 
-        public static void AgainstInValidString(string value, string message)
+        public static void AgainstInvalidString(string value, string message)
         {
             if (!string.IsNullOrEmpty(value) || !string.IsNullOrWhiteSpace(value))
             {

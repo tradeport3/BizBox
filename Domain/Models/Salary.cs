@@ -16,7 +16,7 @@ namespace Domain.Models
 
         private void Validate(string value)
         {
-            Guard.AgainstInValidString(value, ErrorConstants.InvalidInput);
+            Guard.AgainstInvalidString(value, ErrorConstants.InvalidInput);
 
             Guard.Against(value.Length < ModelConstants.MinStringLength ||
                           value.Length > ModelConstants.MaxStringLength,
