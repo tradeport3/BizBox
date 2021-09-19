@@ -1,11 +1,11 @@
 ﻿using Domain;
 using Infrastructure;
 
-namespace BizBox.Startup
+namespace Startup
 {
-    public class Startup
+    public class StartupConfiguration
     {
-        public Startup(IConfiguration configuration) => this.Configuration = configuration;
+        public StartupConfiguration(IConfiguration configuration) => this.Configuration = configuration;
 
         public IConfiguration Configuration { get; }
 

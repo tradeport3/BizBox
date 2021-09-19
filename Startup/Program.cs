@@ -1,12 +1,12 @@
-using BizBox.Startup;
+using Startup;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services
-    .AddSingleton<Startup>()
-    .AddControllers();
+        .AddSingleton<StartupConfiguration>()
+        .AddControllers();
 
 var app = builder.Build();
 

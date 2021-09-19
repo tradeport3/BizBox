@@ -9,7 +9,7 @@
     }
   },
   "profiles": {
-    "BizBox.Startup": {
+    "Startup": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,
