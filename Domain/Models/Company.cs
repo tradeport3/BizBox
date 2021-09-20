@@ -9,7 +9,7 @@ namespace Domain.Models
 
         public Company(string name)
         {
-            Validator.Validate(name);
+            Validatr.Validate(name);
 
             this.Name = name;
 
@@ -27,10 +27,10 @@ namespace Domain.Models
 
         public void AddReview(Review review)
         {
-            Validator.Validate(review.Management);
-            Validator.Validate(review.CompensationsBenefits);
-            Validator.Validate(review.CarreerOpportunities);
-            Validator.Validate(review.Culture);
+            Validatr.Validate(review.Management);
+            Validatr.Validate(review.CompensationsBenefits);
+            Validatr.Validate(review.CarreerOpportunities);
+            Validatr.Validate(review.Culture);
 
             this.reviews.Add(review);
         }
@@ -39,7 +39,7 @@ namespace Domain.Models
 
         public Company UpdateName(string name)
         {
-            Validator.Validate(name);
+            Validatr.Validate(name);
 
             this.Name = name;
 

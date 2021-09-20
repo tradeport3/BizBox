@@ -6,13 +6,15 @@ namespace Domain.Models
     {
         public Comment(bool isPro, string text)
         {
-            Validator.Validate(text);
+            Validatr.Validate(text);
 
             this.IsPro = isPro;
             this.Text = text;
         }
-        public string Text { get; set; }
+        public string Text { get; }
 
-        public bool IsPro { get; set; }
+        public bool IsPro { get; private set; }
+
+        public void ChangeIsPro() => this.IsPro = !this.IsPro;
     }
 }

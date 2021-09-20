@@ -6,14 +6,14 @@ namespace Domain.Models
     {
         public Salary(string position, string netSalary)
         {
-            Validator.Validate(position);
-            Validator.Validate(netSalary);
+            Validatr.Validate(position);
+            Validatr.Validate(netSalary);
 
             this.Position = position;
             this.NetSalary = netSalary;
         }
-        public string Position { get; set; }
+        public string Position { get; }
 
-        public string NetSalary { get; set; }
+        public string NetSalary { get; }
     }
 }

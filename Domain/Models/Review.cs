@@ -13,10 +13,10 @@ namespace Domain.Models
             double compensationsBenefits,
             double carreerOpportunities)
         {
-            Validator.Validate(managament);
-            Validator.Validate(compensationsBenefits);
-            Validator.Validate(carreerOpportunities);
-            Validator.Validate(culture);
+            Validatr.Validate(managament);
+            Validatr.Validate(compensationsBenefits);
+            Validatr.Validate(carreerOpportunities);
+            Validatr.Validate(culture);
 
             this.Management = managament;
             this.CompensationsBenefits = compensationsBenefits;
@@ -27,13 +27,13 @@ namespace Domain.Models
             this.comments = new HashSet<Comment>();
         }
 
-        public double Management { get; set; }
+        public double Management { get; }
 
-        public double CompensationsBenefits { get; set; }
+        public double CompensationsBenefits { get; }
 
-        public double CarreerOpportunities { get; set; }
+        public double CarreerOpportunities { get; }
 
-        public double Culture { get; set; }
+        public double Culture { get; }
 
         public double Rating => this.GetRating();
 
@@ -43,15 +43,15 @@ namespace Domain.Models
 
         public void AddSalary(Salary salary)
         {
-            Validator.Validate(salary.Position);
-            Validator.Validate(salary.NetSalary);
+            Validatr.Validate(salary.Position);
+            Validatr.Validate(salary.NetSalary);
 
             this.salaries.Add(salary);
         }
 
         public void AddComment(Comment comment)
         {
-            Validator.Validate(comment.Text);
+            Validatr.Validate(comment.Text);
 
             this.comments.Add(comment);
         }
