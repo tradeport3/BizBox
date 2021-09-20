@@ -6,6 +6,7 @@ using Microsoft.Extensions.Logging;
 namespace Application.Behaviours
 {
     public class LoggingBehaviour<TRequest> : IRequestPreProcessor<TRequest>
+        where TRequest : class
     {
         private readonly ILogger logger;
         private readonly ICurrentUser currentUser;
@@ -32,8 +33,7 @@ namespace Application.Behaviours
                 userName = await identity.GetUserNameAsync(userId);
             }
 
-            logger.LogInformation("CleanArchitecture Request: {Name} {@UserId} {@UserName} {@Request}",
-                requestName, userId, userName, request);
+            logger.LogInformation($"Request: {requestName},\n request: {request},\n UserId: {userId},\n User name: {userName}");
         }
     }
 }
