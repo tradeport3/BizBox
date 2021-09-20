@@ -1,4 +1,5 @@
 ﻿using Domain.Common;
+using Domain.Enums;
 
 namespace Domain.Models
 {
@@ -26,6 +27,8 @@ namespace Domain.Models
             this.salaries = new HashSet<Salary>();
             this.comments = new HashSet<Comment>();
         }
+
+        public WriterType Writer { get; }
 
         public double Management { get; }
 
