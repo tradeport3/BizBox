@@ -13,10 +13,10 @@ namespace Domain.Models
             double compensationsBenefits,
             double carreerOpportunities)
         {
-            Validatr.Validate(managament);
-            Validatr.Validate(compensationsBenefits);
-            Validatr.Validate(carreerOpportunities);
-            Validatr.Validate(culture);
+            Validator.Validate(managament);
+            Validator.Validate(compensationsBenefits);
+            Validator.Validate(carreerOpportunities);
+            Validator.Validate(culture);
 
             this.Management = managament;
             this.Perks = compensationsBenefits;
@@ -43,15 +43,15 @@ namespace Domain.Models
 
         public void AddSalary(Salary salary)
         {
-            Validatr.Validate(salary.Position);
-            Validatr.Validate(salary.NetSalary);
+            Validator.Validate(salary.Position);
+            Validator.Validate(salary.NetSalary);
 
             this.salaries.Add(salary);
         }
 
         public void AddComment(Comment comment)
         {
-            Validatr.Validate(comment.Text);
+            Validator.Validate(comment.Text);
 
             this.comments.Add(comment);
         }

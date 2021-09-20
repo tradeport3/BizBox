@@ -6,7 +6,7 @@ namespace Domain.Models
     {
         public Comment(bool isPro, string text)
         {
-            Validatr.Validate(text);
+            Validator.Validate(text);
 
             this.IsPro = isPro;
             this.Text = text;

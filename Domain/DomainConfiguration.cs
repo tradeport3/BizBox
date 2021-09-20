@@ -1,4 +1,4 @@
-﻿using Domain.Common;
+﻿using Domain.Factories;
 using Domain.Repositories;
 using Microsoft.Extensions.DependencyInjection;
 

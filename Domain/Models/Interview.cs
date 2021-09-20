@@ -16,7 +16,7 @@ namespace Domain.Models
 
         public void AddQuestion(string question)
         {
-            Validatr.Validate(question);
+            Validator.Validate(question);
 
             this.questions.Add(question);
         }

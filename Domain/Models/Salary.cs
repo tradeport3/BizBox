@@ -6,8 +6,8 @@ namespace Domain.Models
     {
         public Salary(string position, string netSalary)
         {
-            Validatr.Validate(position);
-            Validatr.Validate(netSalary);
+            Validator.Validate(position);
+            Validator.Validate(netSalary);
 
             this.Position = position;
             this.NetSalary = netSalary;

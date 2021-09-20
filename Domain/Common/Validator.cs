@@ -3,7 +3,7 @@ using Domain.Exceptions;
 
 namespace Domain.Common
 {
-    internal static class Validatr
+    internal static class Validator
     {
         internal static void Validate(double value)
           => Guard.Against(
