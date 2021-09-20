@@ -2,7 +2,7 @@
 
 namespace Domain.Models
 {
-    public class Company : Audit, IAggregateRoot
+    public class Company : Entity<int>, IAggregateRoot
     {
         private readonly HashSet<Review> reviews;
         private readonly HashSet<Interview> interviews;

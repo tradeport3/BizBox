@@ -2,7 +2,7 @@
 
 namespace Domain.Models
 {
-    public class Comment
+    public class Comment : Entity<int>
     {
         public Comment(bool isPro, string text)
         {
