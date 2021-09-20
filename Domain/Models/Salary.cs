@@ -12,6 +12,7 @@ namespace Domain.Models
             this.Position = position;
             this.NetSalary = netSalary;
         }
+
         public string Position { get; }
 
         public string NetSalary { get; }
