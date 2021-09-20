@@ -5,6 +5,9 @@ namespace Domain.Factories.Reviews
 {
     public interface IReviewFactory : IFactory<Review>
     {
-        IReviewFactory WithRating(double rating);
+        IReviewFactory WithManagement(double rating);
+        IReviewFactory WithPerks(double rating);
+        IReviewFactory WithCareerGrowth(double rating);
+        IReviewFactory WithCulture(double rating);
     }
 }

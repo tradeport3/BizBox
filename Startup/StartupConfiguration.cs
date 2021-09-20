@@ -36,9 +36,9 @@ namespace Startup
                     .AllowAnyHeader()
                     .AllowAnyMethod())
                 .UseAuthentication()
-                .UseAuthorization();
-            //.UseEndpoints(endpoints => endpoints
-            //.MapControllers());
+                .UseAuthorization()
+                .UseEndpoints(endpoints => endpoints
+                    .MapControllers());
             //.Initialize();
         }
     }

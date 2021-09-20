@@ -19,8 +19,8 @@ namespace Domain.Models
             Validatr.Validate(culture);
 
             this.Management = managament;
-            this.CompensationsBenefits = compensationsBenefits;
-            this.CarreerOpportunities = carreerOpportunities;
+            this.Perks = compensationsBenefits;
+            this.CareerGrowth = carreerOpportunities;
             this.Culture = culture;
 
             this.salaries = new HashSet<Salary>();
@@ -29,9 +29,9 @@ namespace Domain.Models
 
         public double Management { get; }
 
-        public double CompensationsBenefits { get; }
+        public double Perks { get; }
 
-        public double CarreerOpportunities { get; }
+        public double CareerGrowth { get; }
 
         public double Culture { get; }
 
@@ -60,8 +60,8 @@ namespace Domain.Models
             => new List<double>
             {
                 this.Management,
-                this.CompensationsBenefits,
-                this.CarreerOpportunities,
+                this.Perks,
+                this.CareerGrowth,
                 this.Culture
             }
             .Average();

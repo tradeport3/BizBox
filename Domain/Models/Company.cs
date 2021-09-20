@@ -28,8 +28,8 @@ namespace Domain.Models
         public void AddReview(Review review)
         {
             Validatr.Validate(review.Management);
-            Validatr.Validate(review.CompensationsBenefits);
-            Validatr.Validate(review.CarreerOpportunities);
+            Validatr.Validate(review.Perks);
+            Validatr.Validate(review.CareerGrowth);
             Validatr.Validate(review.Culture);
 
             this.reviews.Add(review);
