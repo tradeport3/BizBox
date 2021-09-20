@@ -30,7 +30,7 @@ namespace Application.Behaviours
 
             if (!string.IsNullOrEmpty(userId))
             {
-                userName = await identity.GetUserNameAsync(userId);
+                userName = await identity.GetUserName(userId);
             }
 
             logger.LogInformation($"Request: {requestName},\n request: {request},\n UserId: {userId},\n User name: {userName}");
