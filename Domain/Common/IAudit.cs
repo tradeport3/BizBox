@@ -2,12 +2,12 @@
 {
     public interface IAudit
     {
-        public DateTime CreatedOn { get; set; }
+        DateTime Created { get; set; }
 
-        public DateTime? ModifiedOn { get; set; }
+        string CreatedBy { get; set; }
 
-        public string CreatedBy { get; set; }
+        DateTime? LastModified { get; set; }
 
-        public string ModifiedBy { get; set; }
+        string LastModifiedBy { get; set; }
     }
 }
