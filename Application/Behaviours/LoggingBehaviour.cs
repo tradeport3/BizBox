@@ -34,6 +34,8 @@ namespace Application.Behaviours
             }
 
             logger.LogInformation($"Request: {requestName},\n request: {request},\n User id: {userId},\n Username: {username}");
+
+            logger.LogInformation("CleanArchitecture Request: {Name} {@UserId} {@UserName} {@Request}", requestName, userId, username, request);
         }
     }
 }
