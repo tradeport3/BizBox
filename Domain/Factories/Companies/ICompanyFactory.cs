@@ -1,5 +1,4 @@
-﻿using Domain.Common;
-using Domain.Models;
+﻿using Domain.Models;
 
 namespace Domain.Factories.Companies
 {
