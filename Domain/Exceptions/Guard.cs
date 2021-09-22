@@ -29,7 +29,7 @@ namespace Domain.Exceptions
             }
         }
 
-        public static void AgainstINull<T>(T value, string message)
+        public static void AgainstNull<T>(T value, string message)
         {
             if (value == null)
             {

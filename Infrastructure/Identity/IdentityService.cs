@@ -3,6 +3,8 @@ using Application.Identity.Commands;
 using Application.Identity.Commands.ChangePassword;
 using Application.Identity.Commands.LoginUser;
 using Application.Models;
+using Domain.Constants;
+using Domain.Exceptions;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -41,12 +43,16 @@ namespace Infrastructure.Identity
         {
             var user = userManager.Users.SingleOrDefault(u => u.Id == userId);
 
+            Guard.AgainstNull(user, ErrorConstants.IsNull);
+
             return await userManager.IsInRoleAsync(user, role);
         }
 
         public async Task<bool> Authorize(string userId, string policyName)
         {
             var user = userManager.Users.SingleOrDefault(u => u.Id == userId);
+
+            Guard.AgainstNull(user, ErrorConstants.IsNull);
 
             var principal = await userClaimsPrincipalFactory.CreateAsync(user);
 
