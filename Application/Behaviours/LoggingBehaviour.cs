@@ -18,7 +18,7 @@ namespace Application.Behaviours
             IIdentity identityService)
         {
             this.logger = logger;
-            currentUser = currentUserService;
+            this.currentUser = currentUserService;
             this.identity = identityService;
         }
 
@@ -26,14 +26,14 @@ namespace Application.Behaviours
         {
             var requestName = typeof(TRequest).Name;
             var userId = currentUser.Id ?? string.Empty;
-            string userName = string.Empty;
+            string username = string.Empty;
 
             if (!string.IsNullOrEmpty(userId))
             {
-                userName = await identity.GetUserName(userId);
+                username = await identity.GetUserName(userId);
             }
 
-            logger.LogInformation($"Request: {requestName},\n request: {request},\n UserId: {userId},\n User name: {userName}");
+            logger.LogInformation($"Request: {requestName},\n request: {request},\n User id: {userId},\n Username: {username}");
         }
     }
 }
