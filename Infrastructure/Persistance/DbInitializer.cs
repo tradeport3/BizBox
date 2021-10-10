@@ -2,11 +2,11 @@
 
 namespace Infrastructure.Persistance
 {
-    internal class DatabaseInitializer : IInitializer
+    internal class DbInitializer : IInitializer
     {
         private readonly BizBoxDbContext db;
 
-        public DatabaseInitializer(BizBoxDbContext db)
+        public DbInitializer(BizBoxDbContext db)
         {
             this.db = db;
         }
