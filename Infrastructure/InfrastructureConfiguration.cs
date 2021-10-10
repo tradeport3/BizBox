@@ -46,8 +46,8 @@ namespace Infrastructure
                 .AddEntityFrameworkStores<BizBoxDbContext>();
 
             var secret = configuration
-                .GetSection(nameof(ApplicationSettings))
-                .GetValue<string>(nameof(ApplicationSettings.Secret));
+                .GetSection(nameof(AppSettings))
+                .GetValue<string>(nameof(AppSettings.Secret));
 
             var key = Encoding.ASCII.GetBytes(secret);
 

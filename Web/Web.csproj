@@ -8,8 +8,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Common\" />
-    <Folder Include="Features\" />
+    <Compile Remove="Common\**" />
+    <Compile Remove="Features\**" />
+    <Content Remove="Common\**" />
+    <Content Remove="Features\**" />
+    <EmbeddedResource Remove="Common\**" />
+    <EmbeddedResource Remove="Features\**" />
+    <None Remove="Common\**" />
+    <None Remove="Features\**" />
   </ItemGroup>
 
   <ItemGroup>

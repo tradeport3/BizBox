@@ -9,9 +9,9 @@ namespace Infrastructure.Identity
 {
     internal class JwtTokenGeneratorService : IJwtTokenGenerator
     {
-        private readonly ApplicationSettings applicationSettings;
+        private readonly AppSettings applicationSettings;
 
-        public JwtTokenGeneratorService(IOptions<ApplicationSettings> applicationSettings)
+        public JwtTokenGeneratorService(IOptions<AppSettings> applicationSettings)
             => this.applicationSettings = applicationSettings.Value;
 
         public string GenerateToken(User user, IEnumerable<string> roles)

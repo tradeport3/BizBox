@@ -11,8 +11,8 @@ namespace Application
           this IServiceCollection services,
           IConfiguration configuration)
           => services
-              .Configure<ApplicationSettings>(
-                  configuration.GetSection(nameof(ApplicationSettings)),
+              .Configure<AppSettings>(
+                  configuration.GetSection(nameof(AppSettings)),
                   options => options.BindNonPublicProperties = true)
               .AddAutoMapper(Assembly.GetExecutingAssembly())
               .AddMediatR(Assembly.GetExecutingAssembly());
