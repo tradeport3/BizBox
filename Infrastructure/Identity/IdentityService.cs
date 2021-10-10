@@ -13,7 +13,7 @@ namespace Infrastructure.Identity
 {
     internal class IdentityService : IIdentity
     {
-        private const string InvalidErrorMessage = "Invalid credentials.";
+        private const string InvalidErrorMessage = "Invalid credentials";
 
         private readonly IJwtTokenGenerator jwtTokenGenerator;
         private readonly UserManager<User> userManager;

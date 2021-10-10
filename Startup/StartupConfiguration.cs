@@ -16,6 +16,7 @@ namespace Startup
 
         public void ConfigureServices(IServiceCollection services)
             => services
+                .AddSwaggerGen()
                 .AddDomain()
                 .AddApplication(this.Configuration)
                 .AddInfrastructure(this.Configuration)
@@ -26,6 +27,9 @@ namespace Startup
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app
+                    .UseSwagger()
+                    .UseSwaggerUI();
             }
 
             app
@@ -38,8 +42,8 @@ namespace Startup
                 .UseAuthentication()
                 .UseAuthorization()
                 .UseEndpoints(endpoints => endpoints
-                    .MapControllers());
-            //.Initialize();
+                    .MapControllers())
+                .Initialize();
         }
     }
 }
