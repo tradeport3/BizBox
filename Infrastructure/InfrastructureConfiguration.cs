@@ -1,5 +1,4 @@
-﻿using System.Text;
-using Application;
+﻿using Application;
 using Application.Identity;
 using Infrastructure.Identity;
 using Infrastructure.Persistance;
@@ -9,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 namespace Infrastructure
 {

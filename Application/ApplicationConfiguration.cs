@@ -1,7 +1,7 @@
-﻿using System.Reflection;
-using Microsoft.Extensions.DependencyInjection;
+﻿using MediatR;
 using Microsoft.Extensions.Configuration;
-using MediatR;
+using Microsoft.Extensions.DependencyInjection;
+using System.Reflection;
 
 namespace Application
 {

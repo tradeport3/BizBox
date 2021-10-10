@@ -1,6 +1,6 @@
-﻿using Domain;
+﻿using Application;
+using Domain;
 using Infrastructure;
-using Application;
 using Web;
 
 namespace Startup

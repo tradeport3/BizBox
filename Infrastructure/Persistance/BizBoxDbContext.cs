@@ -1,10 +1,10 @@
-﻿using System.Reflection;
-using Application.Interfaces;
+﻿using Application.Interfaces;
 using Domain.Common;
 using Domain.Models;
 using Infrastructure.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection;
 
 namespace Infrastructure.Persistance
 {
