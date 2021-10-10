@@ -10,6 +10,7 @@ namespace Infrastructure.Persistance
         {
             this.db = db;
         }
+
         public void Initialize()
         {
             this.db.Database.Migrate();
