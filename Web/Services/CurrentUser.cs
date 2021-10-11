@@ -5,24 +5,18 @@ namespace Web.Services
 {
     public class CurrentUser : ICurrentUser
     {
+        private readonly IHttpContextAccessor httpContextAccessor;
+
         public CurrentUser(IHttpContextAccessor httpContextAccessor)
         {
-            var user = httpContextAccessor.HttpContext?.User;
-
-            if (user == null)
-            {
-                throw new InvalidOperationException("This request does not have an authenticated user.");
-            }
-
-            this.Id = user.FindFirstValue(ClaimTypes.NameIdentifier);
-
-            this.Roles = user
-                .FindAll(c => c.Type == ClaimTypes.Role)
-                .Select(c => c.Value);
+            this.httpContextAccessor = httpContextAccessor;
         }
 
-        public string Id { get; }
+        public string? Id => this.httpContextAccessor
+            .HttpContext?
+            .User?
+            .FindFirstValue(ClaimTypes.NameIdentifier);
 
-        public IEnumerable<string> Roles { get; }
+        public IEnumerable<string>? Roles { get; }
     }
 }

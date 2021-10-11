@@ -4,13 +4,14 @@ namespace Domain.Models
 {
     public class Comment : Entity<int>
     {
-        public Comment(bool isPro, string text)
+        public Comment(string text, bool isPro)
         {
             Validator.Validate(text);
 
-            this.IsPro = isPro;
             this.Text = text;
+            this.IsPro = isPro;
         }
+
         public string Text { get; }
 
         public bool IsPro { get; private set; }

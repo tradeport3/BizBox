@@ -4,7 +4,7 @@ using Domain.Common;
 
 namespace Domain.Models
 {
-    public class Interview
+    public class Interview : Entity<int>
     {
         private readonly HashSet<string> questions;
 

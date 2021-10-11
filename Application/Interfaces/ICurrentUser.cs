@@ -2,8 +2,8 @@
 {
     public interface ICurrentUser
     {
-        string Id { get; }
+        string? Id { get; }
 
-        IEnumerable<string> Roles { get; }
+        IEnumerable<string>? Roles { get; }
     }
 }

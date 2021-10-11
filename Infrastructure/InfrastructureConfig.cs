@@ -12,7 +12,7 @@ using System.Text;
 
 namespace Infrastructure
 {
-    public static class InfrastructureConfiguration
+    public static class InfrastructureConfig
     {
         public static IServiceCollection AddInfrastructure(
            this IServiceCollection services,
@@ -28,14 +28,16 @@ namespace Infrastructure
                 .AddDbContext<BizBoxDbContext>(options => options
                 .UseSqlServer(
                     configuration.GetConnectionString("DefaultConnection"),
-                    sqlServer => sqlServer.MigrationsAssembly(typeof(BizBoxDbContext).Assembly.FullName)));
+                    sqlServer => sqlServer
+                        .MigrationsAssembly(typeof(BizBoxDbContext).Assembly.FullName)))
+              .AddTransient<IInitializer, DbInitializer>();
 
         private static IServiceCollection AddIdentity(
             this IServiceCollection services,
             IConfiguration configuration)
         {
             services
-                .AddIdentity<IdentityUser, IdentityRole>(options =>
+                .AddIdentity<User, IdentityRole>(options =>
                 {
                     options.Password.RequiredLength = 6;
                     options.Password.RequireDigit = false;

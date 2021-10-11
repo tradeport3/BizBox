@@ -13,7 +13,7 @@ namespace Infrastructure.Persistance
         private readonly ICurrentUser currentUser;
 
         public BizBoxDbContext(
-            DbContextOptions options,
+            DbContextOptions<BizBoxDbContext> options,
             ICurrentUser currentUser)
             : base(options)
         {
@@ -27,6 +27,8 @@ namespace Infrastructure.Persistance
         public DbSet<Salary> Salaries { get; set; } = default!;
 
         public DbSet<Interview> Interviews { get; set; } = default!;
+
+        public DbSet<Comment> Comments { get; set; } = default!;
 
         public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default(CancellationToken))
         {
@@ -54,5 +56,13 @@ namespace Infrastructure.Persistance
 
             base.OnModelCreating(builder);
         }
+
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    if (!optionsBuilder.IsConfigured)
+        //    {
+        //        optionsBuilder.UseSqlServer("Data Source=.;Initial Catalog=BizBox");
+        //    }
+        //}
     }
 }

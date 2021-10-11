@@ -4,7 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace Domain
 {
-    public static class DomainConfiguration
+    public static class DomainConfig
     {
         public static IServiceCollection AddDomain(this IServiceCollection services)
             => services
